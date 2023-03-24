@@ -25,3 +25,9 @@ At the bottom of the pycharm window, click on Terminal. In the terminal, submit 
 >uvicorn main:app --reload
 
 This will start the web server and allow http requests to be sent. (You can see it by clicking the link).
+
+
+
+Test URL to see state of website-
+https://htmlpreview.github.io/?https://github.com/BlackHalcyon/WebCards/blob/main/SWE%20project/index.html
+
