@@ -1,6 +1,6 @@
 ﻿/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
    HTML content. To learn how to do something, just try searching Google for questions like
-   "how to change link color." */
+   "how to change link color."   */
 
 
 .section {
@@ -10,7 +10,6 @@
 	float:none;
 	border-radius: 2em;
     padding:1em;
-<<<<<<< HEAD
     text-align:center; 
 }
 
@@ -25,8 +24,6 @@
 	text-align: left;
 	border-style: solid;
 	border-color: blue;
-=======
->>>>>>> 9e3afbd09efc5d334a98a8affe330e3bdeaa7521
 }
 
 .quote {
@@ -41,22 +38,14 @@
 	display: inline-flex;
 	padding: 0.5em;
 	border-radius: 1em; 
-<<<<<<< HEAD
 	background-color: #a6cded;
-=======
-	background-color: #262626;
->>>>>>> 9e3afbd09efc5d334a98a8affe330e3bdeaa7521
 	font: bold;
 	font-size: 1.25em;
 	margin-bottom: 0;
 }
 .link:hover {
     color: #ffffff;
-<<<<<<< HEAD
     background-color: #cfe2f3;
-=======
-    background-color: #000440;
->>>>>>> 9e3afbd09efc5d334a98a8affe330e3bdeaa7521
     text-decoration: none;
 }
 
@@ -88,10 +77,7 @@ body > #container { height: auto; min-height: 100%}
 #container {
 padding-bottom: 3em;
 background-color: #2985d1;
-<<<<<<< HEAD
 text-align:center; /*added here 2023, march25 */
-=======
->>>>>>> 9e3afbd09efc5d334a98a8affe330e3bdeaa7521
 }
 
 #header {
