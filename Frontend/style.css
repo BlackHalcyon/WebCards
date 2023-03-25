@@ -10,6 +10,20 @@
 	float:none;
 	border-radius: 2em;
     padding:1em;
+    text-align:center; 
+}
+
+.checklist {
+	   background-color: #2985d1;   
+    color:#e6e6e6;
+    margin:1em 4em 1em 4em;  
+	float:none;
+	border-radius: 2em;
+    padding:1em;
+    display: inline-block;
+	text-align: left;
+	border-style: solid;
+	border-color: blue;
 }
 
 .quote {
@@ -24,14 +38,14 @@
 	display: inline-flex;
 	padding: 0.5em;
 	border-radius: 1em; 
-	background-color: #262626;
+	background-color: #a6cded;
 	font: bold;
 	font-size: 1.25em;
 	margin-bottom: 0;
 }
 .link:hover {
     color: #ffffff;
-    background-color: #000440;
+    background-color: #cfe2f3;
     text-decoration: none;
 }
 
@@ -63,6 +77,7 @@ body > #container { height: auto; min-height: 100%}
 #container {
 padding-bottom: 3em;
 background-color: #2985d1;
+text-align:center; /*added here 2023, march25 */
 }
 
 #header {
