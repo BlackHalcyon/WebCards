@@ -34,3 +34,7 @@ async def test_db():
     for subject in subjects.all():
         string.append(subject[1])
     return {"message": string}
+
+@app.get("/testinggg")
+async def testinggg():
+    return {"message": 'yuh'}
