@@ -1,9 +1,10 @@
-from fastapi import Depends, FastAPI
+from fastapi import FastAPI
 from sqlalchemy import text
-
 from database import SessionLocal
+import crud
 
 app = FastAPI()
+
 
 def get_db():
     db = SessionLocal()
@@ -38,3 +39,26 @@ async def test_db():
 @app.get("/testinggg")
 async def testinggg():
     return {"message": 'yuh'}
+
+
+@app.put("/create/{subject_name}")
+async def create_subject(subject_name: str):
+    crud.create_subject(SessionLocal(), subject_name)
+    return 201
+
+
+@app.get("/get/subjects")
+async def get_subjects():
+    return crud.get_subjects(SessionLocal())
+
+
+@app.post("/update/{subject_id}/{new_name}/{new_hide}")
+async def update_subject(subject_id: int, new_name: str, new_hide: bool):
+    crud.update_subject(SessionLocal(), subject_id, new_name, new_hide)
+    return 201
+
+
+@app.delete("/delete/{subject_id}")
+async def delete_subject(subject_id: int):
+    crud.delete_subject(SessionLocal(), subject_id)
+    return 201
