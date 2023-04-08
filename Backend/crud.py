@@ -31,3 +31,24 @@ def delete_subject(db: SessionLocal, subject_id: int):
         db.commit()
         return True
     return False
+
+
+def create_chapter(db: SessionLocal, input_name: str):
+    new_chapter = models.Chapter()
+    new_chapter.name = input_name
+    new_chapter.hide = False
+    db.add(new_chapter)
+    db.commit()
+    db.refresh(new_chapter)
+    return new_chapter
+
+
+def get_chapters(db: SessionLocal):
+    return db.query(models.Chapter).filter(models.Chapter.hide == False).all()
+
+def update_chapter(db: SessionLocal, chapter_id: int, new_name: str, new_hide: bool):
+    db_chapter = b.query(models.Subject).filter(models.Subject.id == subject_id).first()
+    db_subject.name = new_name
+    db.hide = new_hide
+    db.commit()
+    return db_subject
