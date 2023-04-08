@@ -1,11 +1,108 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
+
+  <!--TESTING AJAX-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("#Test-string").click(function(){
+
+     $.ajax({
+
+      url : 'http://127.0.0.1:8000/',
+      type : 'GET',
+      dataType:'json',
+      success : function(data) {
+          var result = data.message;
+          alert('Data: '+ result);
+      },
+      error : function(error)
+      {
+          alert("Error");
+      }
+  });
+
+      });
+    });
+    </script>
+    </head>
+    <body>
+
+<p id="Test-string">Test string endpoint.</p>
+
+</body>
+
+<!--TESTING AJAX-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("#Test-int").click(function(){
+
+     $.ajax({
+
+      url : 'http://127.0.0.1:8000/get_an_int',
+      type : 'GET',
+      dataType:'json',
+      success : function(data) {
+         var result = data.message;
+          alert('Data: '+ result);
+      },
+      error : function(error)
+      {
+          alert("Error");
+      }
+  });
+
+      });
+    });
+    </script>
+    </head>
+    <body>
+
+<p id="Test-int">Test integer endpoint.</p>
+
+</body>
+
+<!--TESTING AJAX-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("#Test-list").click(function(){
+
+     $.ajax({
+
+      url : 'http://127.0.0.1:8000/get_a_list_strings',
+      type : 'GET',
+      dataType:'json',
+      success : function(data) {
+         var result = data.message;
+          alert('Data: '+ result);
+      },
+      error : function(error)
+      {
+          alert("Error");
+      }
+  });
+
+      });
+    });
+    </script>
+    </head>
+    <body>
+
+<p id="Test-list">Test list endpoint.</p>
+
+</body>
+
+
 <title>WebCards </title>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="style.css" type="text/css" media="all">
 </head>
 <body bgcolor="#a6cded">
+
+
 
 <div id="container"> 
 <div id="header">
