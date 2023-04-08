@@ -4,6 +4,7 @@
 <title>WebCards </title>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="style.css" type="text/css" media="all">
+<link rel="stylesheet" href="deckStyle.css" type="text/css" media="all">
 </head>
 <body bgcolor="#a6cded">
 
@@ -52,18 +53,25 @@ About
 
 </div>
 
-<div class="section">
-<h2>New Deck</h2>
-<p>Stuff for adding a new deck goes here</p>
-<button type="button" onclick="window.location.href = 'deck.html';">Add New Deck</button>
+<div class="create-cardBox">
+<h2 style="text-align: center; color: black
+ ">Create Flashcard</h2>
+ <label for="question">Question</label>
+ <textarea id="question"></textarea>
+ <br>
+ <label for="answer">Answer</label>
+ <textarea id="answer"></textarea>
+ <div>
+    <button onclick="addFlashcard()">Save</button>
+    <button onclick="hideCardBox()">Close</button>
+ </div>
+ <div class="flashcards"> 
+
+ </div>
 </div>
 
 
-<div class="section">
-<h2>Settings for Decks</h2>
-<p>Settings for assigning chapters to decks and sorting options go here. </p>
-<button type="button">Adjust settings</button>
-</div>
+
 
 </div>
 

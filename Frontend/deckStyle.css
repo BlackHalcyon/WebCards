@@ -1,0 +1,50 @@
+button:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.create-cardBox{   
+    width: 380px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #a6cded ;
+    box-shadow: 0 2px 4px 0 rgb(0,0,0,0.1);
+    border-style: solid;
+    border-color: blue;
+}
+
+.create-cardBox textarea{
+    width: 100%;
+    border-radius: 5px;
+    font-family: inherit;
+    border: 1px solid lightgray;
+}
+
+.create-cardBox button{
+    width: fit-content;
+}
+
+.flashcards{   /* This will show how and where the flashcard will display. Two functions "addFlashcard()" and "hideCardBox()" need to be developed in Backend JavaScript to carry out the save and close operations for the flashcard box*/   
+    display: flex;                            
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+.flashcard{  /*design of how the flashcards will look like*/
+    width: 370px;
+    height: 200px;
+    word-wrap: break-word;
+    margin: 10px;
+    background-color: #a6cded ;
+    box-shadow: 0 2px 4px 0 black;
+}
+
+.flashcard h2{
+    font-size: 1rem;
+}
