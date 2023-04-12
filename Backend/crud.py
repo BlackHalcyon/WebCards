@@ -52,3 +52,7 @@ def update_chapter(db: SessionLocal, chapter_id: int, new_name: str, new_hide: b
     db.hide = new_hide
     db.commit()
     return db_subject
+
+def create_flashcard(db: SessionLocal):
+    new_flashcard = models.Flashcard()
+    
