@@ -66,5 +66,3 @@ def create_flashcard(db: SessionLocal, input_question: str, input_answer: str):
 
 def get_flashcard(db: SessionLocal):
     return db.query(models.Flashcard).filter(models.Flashcard.hide == false).all()
-
-def update_flashcard(db: SessionLocal 
