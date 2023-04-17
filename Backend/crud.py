@@ -43,16 +43,28 @@ def create_chapter(db: SessionLocal, input_name: str):
     return new_chapter
 
 
-def get_chapters(db: SessionLocal):
+def get_chapter(db: SessionLocal):
     return db.query(models.Chapter).filter(models.Chapter.hide == False).all()
 
 def update_chapter(db: SessionLocal, chapter_id: int, new_name: str, new_hide: bool):
-    db_chapter = b.query(models.Subject).filter(models.Subject.id == subject_id).first()
+    db_chapter = b.query(models.Chapter).filter(models.Chapter.id == chapter_id).first()
     db_subject.name = new_name
     db.hide = new_hide
     db.commit()
     return db_subject
 
-def create_flashcard(db: SessionLocal):
+def create_flashcard(db: SessionLocal, input_question: str, input_answer: str):
     new_flashcard = models.Flashcard()
-    
+    new_flascard.front_of_card = input_question
+    new_flashcard.back_of_card = input_answer
+    new_flashcard.hide = False
+    new_flashcard.correct = False
+    db.add(new_flashcard)
+    db.commit()
+    db.refresh(new_flashcard)
+    return new_flashcard
+
+def get_flashcard(db: SessionLocal):
+    return db.query(models.Flashcard).filter(models.Flashcard.hide == false).all()
+
+def update_flashcard(db: SessionLocal 
