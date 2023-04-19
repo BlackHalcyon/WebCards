@@ -71,3 +71,49 @@ async def update_subject(subject_id: int, new_name: str, new_hide: bool):
 async def delete_subject(subject_id: int):
     crud.delete_subject(SessionLocal(), subject_id)
     return 201
+
+
+@app.put("/create/{chapter_name}")
+async def create_chapter(chapter_name: str):
+    crud.create_chapter(SessionLocal(), chapter_name)
+    return 201
+
+
+@app.get("/get/chapters")
+async def get_chapters():
+    return crud.get_chapters(SessionLocal())
+
+
+@app.post("/update/{chapter_id}/{new_name}/{new_hide}")
+async def update_chapter(chapter_id: int, new_name: str, new_hide: bool):
+    crud.update_chapter(SessionLocal(), chapter_id, new_name, new_hide)
+    return 201
+
+
+@app.delete("/delete/{chapter_id}")
+async def delete_chapter(chapter_id: int):
+    crud.delete_chapter(SessionLocal(), chapter_id)
+    return 201
+
+
+@app.put("/create/{flashcard_question}/{flashcard_answer}")
+async def create_flashcard(flashcard_question: str, flashcard_answer: str):
+    crud.create_flashcard(SessionLocal(), flashcard_question, flashcard_answer)
+    return 201
+
+
+@app.get("/get/flashcards")
+async def get_flashcards():
+    return crud.get_flashcards(SessionLocal())
+
+
+@app.post("/update/{flashcard_id}/{new_question}/{new_answer}/{new_correct}/{new_hide}")
+async def update_flashcard(flashcard_id: int, new_question: str, new_answer: str, new_correct: bool, new_hide: bool):
+    crud.update_flashcard(SessionLocal(), flashcard_id, new_question, new_answer, new_correct, new_hide)
+    return 201
+
+
+@app.delete("/delete/{chapter_id}")
+async def delete_chapter(chapter_id: int):
+    crud.delete_subject(SessionLocal(), chapter_id)
+    return 201
