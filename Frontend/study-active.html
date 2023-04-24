@@ -4,6 +4,9 @@
 <title>WebCards </title>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="style.css" type="text/css" media="all">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="script.js"></script>
+
 </head>
 <body bgcolor="#a6cded">
 
@@ -13,18 +16,17 @@
 <h1>WebCards</h1>
 </div>
 
-
 <div id="nav">
 <br>
 <a href="index.html" style="text-decoration:none"> <!--Empty URL causes reload -->
 Home
 </a>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="study-selection.html" style="text-decoration:none"> 
+<a href="study-active.html" id="studyActiveNav" style="text-decoration:none">
 Study
 </a>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="creation.html" style="text-decoration:none"> 
+<a href="creation.html" style="text-decoration:none">
 Creation
 </a>
 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -37,23 +39,16 @@ About
 <div class="section">
 <div>
 	<div class="checklist">
-		<p>Integration to show progress here</p>
-	</div></div>
-<div>
-	<div class="checklist">
-		<p>App/plugin integration here</p>
-		 <div style="text-align: center;" >
-   			 <button onclick="flipFlashcard()">Flip</button>
-   			 <button onclick="nextFlashcard()">Next</button>
-   			 <div>
-   			 <button onclick="correctAnswer()">Correct</button>
-   			 <button onclick="wrongAnswer()">Wrong</button>
-   			 </div>
-		 </div>
+		<p id="flashcardScore">Display Score Here</p>
 	</div>
-	</div>	
 </div>
-
+<div>
+	<div class="checklist" id="flashcardContainer">
+		</div>
+		<div style="text-align: center;">
+		</div>
+	</div>
+</div>
 </div>
 
 <div id="footer">
