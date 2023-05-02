@@ -56,9 +56,9 @@ def update_subject_hide(db: SessionLocal, subject_id: int, new_hide: bool):
     db_subject.hide = new_hide
     db_chapters = db.query(models.Chapter).filter(models.Chapter.subject_id == subject_id).all()
     for db_chapter in db_chapters:
-        update_chapter(db, db_chapter.id, db_chapter.name, new_hide)
+        update_chapter_hide(db, db_chapter.id, new_hide)
     db.commit()
-    db.expunge(db_subject)
+    db.refresh(db_subject)
     return db_subject
 
 
@@ -84,17 +84,23 @@ def create_chapter(db: SessionLocal, input_name: str, subject_id: int):
 
 
 def get_chapters(db: SessionLocal, subject_id: int):
-    return db.query(models.Chapter).filter(models.Subject.id == subject_id).all()
+    return db.query(models.Chapter).filter(models.Chapter.subject_id == subject_id).all()
 
 
 def get_chapters_study(db: SessionLocal):
     return db.query(models.Chapter).filter(models.Chapter.hide == False).all()
 
 
-def update_chapter(db: SessionLocal, chapter_id: int, new_name: str, new_hide: bool):
+def update_chapter_name(db: SessionLocal, chapter_id: int, new_name: str):
     db_chapter = db.query(models.Chapter).filter(models.Chapter.id == chapter_id).first()
     db_chapter.name = new_name
-    db.hide = new_hide
+    db.commit()
+    return db_chapter
+
+
+def update_chapter_hide(db: SessionLocal, chapter_id: int, new_hide: bool):
+    db_chapter = db.query(models.Chapter).filter(models.Chapter.id == chapter_id).first()
+    db_chapter.hide = new_hide
     update_chapter_flashcards(db, chapter_id, new_hide)
     db.commit()
     return db_chapter
@@ -124,7 +130,7 @@ def create_flashcard(db: SessionLocal, chapter_id: int, input_question: str, inp
 
 
 def get_flashcards(db: SessionLocal, chapter_id: int):
-    return db.query(models.Flashcard).filter(models.Chapter.id == chapter_id).all()
+    return db.query(models.Flashcard).filter(models.Flashcard.chapter_id == chapter_id).all()
 
 
 def get_flashcards_study(db: SessionLocal):
@@ -148,12 +154,29 @@ def update_flashcard_reset_score(db: SessionLocal):
     db.commit()
 
 
-def update_flashcard(db: SessionLocal, flashcard_id: int, new_question: str, new_answer: str, new_correct: bool,
-                     new_hide: bool):
+def update_flashcard_question(db: SessionLocal, flashcard_id: int, new_question: str):
     db_flashcard = db.query(models.Flashcard).filter(models.Flashcard.id == flashcard_id).first()
     db_flashcard.front_of_card = new_question
+    db.commit()
+    return db_flashcard
+
+
+def update_flashcard_answer(db: SessionLocal, flashcard_id: int, new_answer: str):
+    db_flashcard = db.query(models.Flashcard).filter(models.Flashcard.id == flashcard_id).first()
     db_flashcard.back_of_card = new_answer
+    db.commit()
+    return db_flashcard
+
+
+def update_flashcard_correct(db: SessionLocal, flashcard_id: int, new_correct: bool):
+    db_flashcard = db.query(models.Flashcard).filter(models.Flashcard.id == flashcard_id).first()
     db_flashcard.correct = new_correct
+    db.commit()
+    return db_flashcard
+
+
+def update_flashcard_hide(db: SessionLocal, flashcard_id: int, new_hide: bool):
+    db_flashcard = db.query(models.Flashcard).filter(models.Flashcard.id == flashcard_id).first()
     db_flashcard.hide = new_hide
     db.commit()
     return db_flashcard
